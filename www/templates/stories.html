@@ -1,0 +1,29 @@
+<ion-view view-title="{{ title }}">
+    <ion-content>
+        <ion-list class="news-list">
+            <ion-item ng-hide="from <= 0">
+                <div class="inner-item" style="text-align: center;">
+                    <span style="line-height: 55px;" ng-click="loadPreviousStories()">Load previous 50 stories</span>
+                </div>
+            </ion-item>
+            <ion-item ng-repeat="story in stories" ng-if="story">
+                <div class="inner-item">
+                    <div class="item-score">
+                        <div class="item-score-icon ion-ios-flame-outline"></div>
+                        <div class="item-score-text">{{ story.score }}</div>
+                    </div>
+                    <div class="item-title" on-tap="goToStory(story)" on-hold="showStoryInfo(story)">
+                        {{ story.title }}
+                    </div>
+                    <span>by: {{ story.by }}</span>
+
+                </div>
+            </ion-item>
+            <ion-item ng-hide="stories.length <= 0">
+                <div class="inner-item" style="text-align: center;">
+                    <span style="line-height: 55px;" ng-click="loadNextStories()">Load next 50 stories</span>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

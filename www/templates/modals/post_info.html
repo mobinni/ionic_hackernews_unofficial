@@ -1,0 +1,28 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-energized">
+        <h1 class="title">Info</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeModal()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card">
+
+            <div style="padding: 10px">
+                <h2>{{ currentStory.title }}</h2>
+                <br/>
+                <p style="float: left; font-size: 13px">Score: {{ currentStory.score }}</p>
+                <p style="float: right; font-size: 13px">Published: {{ currentStory.time | date:'HH:mm:ss' }}</p>
+                <div style="clear: both"></div>
+                <p style="float: right; font-size: 13px">by: {{ currentStory.by }}</p>
+            </div>
+            <!-- implement get all comments -->
+            <br/>
+            <div style="padding: 8px" ng-if="currentStory.text" ng-bind-html="currentStory.text">
+
+            </div>
+        </div>
+        <button ng-if="currentStory.url" class="button button-energized button-full" style="width: 95%; margin: 0 auto" ng-click="goToStory(currentStory)">Go to article</button>
+
+    </ion-content>
+</ion-modal-view>
